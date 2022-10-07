@@ -2,19 +2,28 @@
 
 let computerOptions = ["rock", "paper", "scissors"];
 
+// create a variable called playerChoice to store the players and prompt them for their selection
+
+let playerChoice = 'place holder';
+
 // create a variable to store my getComputer choice in
 
-let computerChoice = 'rock';
+let computerChoice = 'place holder';
 
 // create a function called getComputerChoice to randomly return Rock, Paper, Sciccors
 
 function getComputerChoice() {
-  computerChoice = computerOptions[Math.floor(Math.random()*computerOptions.length)];
+  let computerChoice = computerOptions[Math.floor(Math.random()*computerOptions.length)];
   return computerChoice;
 }
 
-// print the result in the console.log for testing **Comment out when not using**
+// create a function to play a 'round' of rock, paper, scissors
 
-// console.log(getComputerChoice());
+function playRound(playerChoice, computerChoice) {
+  playerChoice = prompt("Please pick: rock, paper, or scissors");
+  return playerChoice.toLowerCase()
+} if (playerChoice === "rock" || computerChoice === "rock") {
+    console.log("You both chose rock! it's a tie!")
+}
 
-// Above is for testing
+console.log(playRound())
