@@ -4,11 +4,15 @@ let computerOptions = ["rock", "paper", "scissors"];
 
 // create a variable called playerChoice to store the players and prompt them for their selection
 
-let playerChoice = 'place holder';
+let playerChoice = "place holder";
 
 // create a variable to store my getComputer choice in
 
-let computerChoice = 'place holder';
+let computerChoice = "place holder";
+
+// create a vairable to hold win status
+
+let winStatus = "you win!"
 
 // create a function called getComputerChoice to randomly return Rock, Paper, Sciccors
 
@@ -23,21 +27,31 @@ function playRound(playerChoice, computerChoice) {
   playerChoice = prompt("Please pick: rock, paper, or scissors")
   playerChoice = playerChoice.toLowerCase();
   computerChoice = getComputerChoice()
-  return console.log(`you chose ${playerChoice} and the computer chose ${computerChoice}!`), checkWinner();
+  checkWinner();
+  return playerChoice, console.log(`you chose ${playerChoice} and the computer chose ${computerChoice}, ${winStatus}!`);
 } 
 
 // create a function to check winner
 
-function checkWinner() {
-  if (playerChoice === 'rock' && computerChoice === 'scissors') {
-      console.log('You win! Congratulations!')
-  } 
-  else if (playerChoice === 'rock' && computerChoice === 'paper') {
-      console.log('That means you lose!')
-  } 
-  else {
-      console.log("It's a tie!")
+function checkWinner(playerChoice, computerChoice) {
+  if (playerChoice === "rock" && computerChoice === "scissors") {
+      winStatus = "You win!"
+  } else if (playerChoice === "rock" && computerChoice === "paper") {
+      winStatus = "You lose!"
+  } else {
+      winStatus = "It's a tie!"
   }
+  return winStatus
 }
 
 console.log(playRound())
+
+
+
+
+
+
+
+
+
+
