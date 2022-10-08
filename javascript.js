@@ -21,28 +21,51 @@ function getComputerChoice() {
   return computerChoice;
 }
 
+// create a function to get playerchoice
+
+function getPlayerChoice() {
+  playerChoice = prompt("Please pick: rock, paper, or scissors")
+  playerChoice = playerChoice.toLowerCase();
+  return playerChoice
+}
+
 // create a function to play a 'round' of rock, paper, scissors
 
 function playRound(playerChoice, computerChoice) {
-  playerChoice = prompt("Please pick: rock, paper, or scissors")
-  playerChoice = playerChoice.toLowerCase();
-  computerChoice = getComputerChoice()
+  computerChoice = getComputerChoice();
+  playerChoice = getPlayerChoice();
   checkWinner();
-  return playerChoice, console.log(`you chose ${playerChoice} and the computer chose ${computerChoice}, ${winStatus}!`);
+  return console.log(`you chose ${playerChoice} and the computer chose ${computerChoice}, ${winStatus}!`);
 } 
 
 // create a function to check winner
 
-function checkWinner(playerChoice, computerChoice) {
-  if (playerChoice === "rock" && computerChoice === "scissors") {
-      winStatus = "You win!"
-  } else if (playerChoice === "rock" && computerChoice === "paper") {
-      winStatus = "You lose!"
-  } else {
-      winStatus = "It's a tie!"
+function checkWinner() {
+  if (playerChoice === "rock") {
+    if (computerChoice === "rock") {
+      winStatus = "it's a tie!"
+    } else if (computerChoice === "scissors") {
+      winStatus = "you win!"
+    } else {
+      winStatus = "you lose"
+    }
+  } else if (playerChoice === "paper") {
+    if (computerChoice === "paper") {
+      winStatus = "it's a tie!";
+    } else if (computerChoice === "rock") {
+      winStatus = "you win!";
+    } else {
+      winStatus = "you lose";
+    }
+  } else if (playerChoice === "scissors") {
+    (computerChoice === "sissors");
+      winStatus = "it's a tie!";
+    } else if (computerChoice === "paper") {
+      winStatus = "you win!";
+    } else {
+      winStatus = "you lose";
+    }
   }
-  return winStatus
-}
 
 console.log(playRound())
 
