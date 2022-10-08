@@ -58,7 +58,7 @@ function checkWinner() {
       winStatus = "you lose";
     }
   } else if (playerChoice === "scissors") {
-    (computerChoice === "sissors");
+    if (computerChoice === "scissors") {
       winStatus = "it's a tie!";
     } else if (computerChoice === "paper") {
       winStatus = "you win!";
@@ -66,8 +66,15 @@ function checkWinner() {
       winStatus = "you lose";
     }
   }
+}
+// create a for loop to make the game play for 5 rounds
 
-console.log(playRound())
+function startGame() {
+  for (let i = 0; i < 5; i++)
+  playRound();
+}
+
+console.log(startGame())
 
 
 
