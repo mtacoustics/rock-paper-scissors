@@ -1,111 +1,202 @@
-// create an array to store the options for getComputerChoice to pick from
-
 let computerOptions = [ "fire", "water", "grass"];
-
-// create a variable called playerChoice to store the players and prompt them for their selection
 
 let playerChoice = "place holder";
 let playerChoicePic = document.querySelector("#player-choice-img")
-
-
-
-// create a variable to store my getComputer choice in
-
 let computerChoice = "place holder";
-
-// create a vairable to hold win status
-
 let winStatus = "win"
+let computerLives = 5
+let playerLives = 5
+let dialogbox = document.getElementById('startbtn');
 
-//create a variable to keep scores
-
-let computerScore = 0
-let playerScore = 0
-
-// create a function called getComputerChoice to randomly return fire, water, Sciccors
+//Computer functions
 
 function getComputerChoice() {
   computerChoice = computerOptions[Math.floor(Math.random()*computerOptions.length)];
   return computerChoice;
 }
 
-// create a function to get playerchoice
-
-function getPlayerChoice() {
-  playerChoice = prompt("Please pick: fire, water, or grass")
-  playerChoice = playerChoice.toLowerCase();
-  return playerChoice
+function generateComputerPic() {
+  let computerPic = document.getElementById("cpu-choice-img")
+  if (computerChoice === 'fire') {
+    computerPic.src="/images/fire-type.png"
+  } if (computerChoice === 'water') {
+    computerPic.src="/images/water-type.png"
+  } if (computerChoice === "grass") {
+    computerPic.src="/images/grass-type.png"
+  }
+  return computerPic;
 }
 
-function generatePlayerPic() {
-  if (playerChoice === 'fire') {
-    playerChoicePic = document.querySelector("#player-choice-img").innerHTML = '<img src="/images/fire-type.png"/>';
-  } if (playerChoice === 'water') {
-    playerChoicePic = document.querySelector("#player-choice-img").innerHTML = '<img src="/images/water-type.png"/>';
-  } if (playerChoice === "grass") {
-     playerChoicePic = document.querySelector("#player-choice-img").innerHTML = '<img src="/images/grass-type.png"/>';
+// CPU lives managment
+const cpuLife1 = document.getElementById('cpulife1')
+const cpuLife2 = document.getElementById('cpulife2')
+const cpuLife3 = document.getElementById('cpulife3')
+const cpuLife4 = document.getElementById('cpulife4')
+const cpuLife5 = document.getElementById('cpulife5')
+
+function computerLivesMath() {
+  if (computerLives === 4) {
+    cpuLife5.style.visibility = 'hidden';
+  } else if (computerLives === 3) {
+    cpuLife5.style.visibility = 'hidden';
+    cpuLife4.style.visibility = 'hidden';
+  } else if (computerLives === 2) {
+    cpuLife5.style.visibility = 'hidden';
+    cpuLife4.style.visibility = 'hidden';
+    cpuLife3.style.visibility = 'hidden';
+  } else if (computerLives === 1) {
+    cpuLife5.style.visibility = 'hidden';
+    cpuLife4.style.visibility = 'hidden';
+    cpuLife3.style.visibility = 'hidden';
+    cpuLife2.style.visibility = 'hidden';
+  } else if (computerLives === 0) {
+    cpuLife5.style.visibility = 'hidden';
+    cpuLife4.style.visibility = 'hidden';
+    cpuLife3.style.visibility = 'hidden';
+    cpuLife2.style.visibility = 'hidden';
+    cpuLife1.style.visibility = 'hidden';
   }
-  return playerChoicePic;
+}
 
+// player lives managment
+
+const userLife1 = document.getElementById('playerlife1')
+const userLife2 = document.getElementById('playerlife2')
+const userLife3 = document.getElementById('playerlife3')
+const userLife4 = document.getElementById('playerlife4')
+const userLife5 = document.getElementById('playerlife5')
+
+function playerLivesMath() {
+  if (playerLives === 4) {
+    userLife1.style.visibility = 'hidden';
+  } else if (playerLives === 3) {
+    userLife1.style.visibility = 'hidden';
+    userLife2.style.visibility = 'hidden';
+  } else if (playerLives === 2) {
+    userLife1.style.visibility = 'hidden';
+    userLife2.style.visibility = 'hidden';
+    userLife3.style.visibility = 'hidden';
+  } else if (playerLives === 1) {
+    userLife1.style.visibility = 'hidden';
+    userLife2.style.visibility = 'hidden';
+    userLife3.style.visibility = 'hidden';
+    userLife4.style.visibility = 'hidden';
+  } else if (playerLives === 0) {
+    userLife1.style.visibility = 'hidden';
+    userLife2.style.visibility = 'hidden';
+    userLife3.style.visibility = 'hidden';
+    userLife4.style.visibility = 'hidden';
+    userLife5.style.visibility = 'hidden';
   }
+}
 
+//function to revive player and cpu lol
 
-// create a function to play a 'round' of fire, water, grass
+function revive() {
+  userLife1.style.visibility = 'visible';
+  userLife2.style.visibility = 'visible';
+  userLife3.style.visibility = 'visible';
+  userLife4.style.visibility = 'visible';
+  userLife5.style.visibility = 'visible';
+  cpuLife5.style.visibility = 'visible';
+  cpuLife4.style.visibility = 'visible';
+  cpuLife3.style.visibility = 'visible';
+  cpuLife2.style.visibility = 'visible';
+  cpuLife1.style.visibility = 'visible';
+}
 
-function playRound(playerChoice, computerChoice) {
-  computerChoice = getComputerChoice();
-  playerChoice = getPlayerChoice();
-  generatePlayerPic();
-  checkWinner();
-  return console.log(`you chose ${playerChoice} and the computer chose ${computerChoice}, ${winStatus}! The score is ${playerScore} to ${computerScore}!`);
-} 
+// player choice method
 
-// create a function to check winner
+const fireBtn = document.querySelector("#firebtn")
+fireBtn.addEventListener("click", playFire)
 
-function checkWinner() {
+const waterBtn = document.querySelector("#waterbtn")
+waterBtn.addEventListener("click", playWater)
+
+const grassBtn = document.querySelector("#grassbtn")
+grassBtn.addEventListener("click", playGrass)
+
+let playerPic = document.getElementById("player-choice-img")
+
+function playFire() {
+  playRound('fire')
+  playerPic.src="/images/fire-type.png"
+}
+
+function playWater() {
+  playRound('water')
+  playerPic.src="/images/water-type.png"
+}
+
+function playGrass() {
+  playRound('grass')
+  playerPic.src="/images/grass-type.png"
+}
+
+// play round with built in win logic
+
+function playRound(playerChoice) {
+  getComputerChoice()
+  generateComputerPic()
   if (playerChoice ===  "fire") {
     if (computerChoice ===  "fire") {
-      winStatus = "it's a tie!"
+      winStatus = "That's not very effective.. It's a tie!"
+      dialogbox.innerText = "That's not very effective.. It's a tie!"
     } else if (computerChoice === "grass") {
       winStatus = "you win!"
-      playerScore = ++playerScore
+      dialogbox.innerText = "Its super effective!! You win!"
+      computerLives = --computerLives
     } else {
       winStatus = " you lose!"
-      computerScore = ++computerScore
+      dialogbox.innerText = "Thats not very effective.. You lose!"
+      playerLives = --playerLives
     }
   } else if (playerChoice === "water") {
     if (computerChoice === "water") {
+      dialogbox.innerText = "That's not very effective.. It's a tie!"
       winStatus = "it's a tie!";
     } else if (computerChoice ===  "fire") {
       winStatus = "you win!";
-      playerScore = ++playerScore
+      dialogbox.innerText = "Its super effective!! You win!"
+      computerLives = --computerLives
     } else {
       winStatus = "you lose!";
-      computerScore = ++computerScore;
+      dialogbox.innerText = "Thats not very effective.. You lose!"
+      playerLives = --playerLives;
     }
   } else if (playerChoice === "grass") {
     if (computerChoice === "grass") {
       winStatus = "it's a tie!";
+      dialogbox.innerText = "That's not very effective.. It's a tie!"
     } else if (computerChoice === "water") {
       winStatus = "you win!";
-      playerScore = ++playerScore
+      dialogbox.innerText = "Its super effective!! You win!"
+      computerLives = --computerLives
     } else {
       winStatus = "you lose!";
-      computerScore = ++computerScore
+      dialogbox.innerText = "Thats not very effective.. You lose!"
+      playerLives = --playerLives
     }
   }
+  computerLivesMath()
+  playerLivesMath()
+  checkWinner()
+  return console.log(winStatus, playerLives, computerLives)
+  
 }
-// create a for loop to make the game play for 5 rounds
 
-function startGame() {
-  for (let i = 0; i < 5; i++)
-  playRound();
-}
-
-// DOM manipulation
-
-function windowOnClick(event) {
-  if (event.target === body) {
-    startGame();
+function checkWinner() {
+  if (playerLives === 0) {
+    restartGame()
+    dialogbox.innerText = "Game over! You have LOST the pokebattle. Better luck next time! Pick again to start a new game."
+  } else if (computerLives === 0) {
+    restartGame()
+    dialogbox.innerText = "Game over! You have WON the pokebattle. Congratulations! Pick again to start a new game!"
   }
+}
+
+function restartGame() {
+  playerLives = 5
+  computerLives = 5
+  revive()
 }

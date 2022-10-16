@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <script src="javascript.js" defer></script>
   <title>Document</title>
 </head>
 <body>
@@ -51,7 +52,7 @@
         <img id="cpulife5" src="/images/pokeball.png" alt="pokeball representing amount of lives">
       </div>
       <div class="cpu-choice">
-        <img class="cpu-choice-img" src="/images/fire-type.png" alt="cpu choice placer holder for fire/water/grass"
+        <img id ="cpu-choice-img" class="cpu-choice-img" src="/images/fire-type.png" alt="cpu choice placer holder for fire/water/grass"
         height="100px"
         width="100px">
       </div>
@@ -73,12 +74,13 @@
     </div>
     <div class="dialog-container">
       <div class="dialog-box">
-        <p>Click to Start</p>
+        <p id="startbtn">Welcome to Fire, Water, Grass! A pokemon inspired rock paper scissors game! The poke
+          balls at the top-left represent the CPU's health. The bottom-right pokeballs is your health. Choose your pokemon type to begin!</p>
       </div>
       <div class="player-choices">
-        <img class="fire" id="btn" src="/images/fire-type.png" alt="fire player choice">
-        <img class="water" id="btn" src="/images/water-type.png" alt="water player choice">
-        <img class="grass" id="btn" src="/images/grass-type.png" alt="grass player choice">
+        <img class="btn" id="firebtn" src="/images/fire-type.png" alt="fire player choice">
+        <img class="btn" id="waterbtn" src="/images/water-type.png" alt="water player choice">
+        <img class="btn" id="grassbtn" src="/images/grass-type.png" alt="grass player choice">
       </div>
     </div>
   </div>
@@ -87,6 +89,6 @@
   </div>
 
     
-  <script src="javascript.js"></script>
+  
 </body>
 </html>
