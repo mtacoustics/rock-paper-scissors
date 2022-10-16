@@ -18,11 +18,11 @@ function getComputerChoice() {
 function generateComputerPic() {
   let computerPic = document.getElementById("cpu-choice-img")
   if (computerChoice === 'fire') {
-    computerPic.src="/fire-type.png"
+    computerPic.src="fire-type.png"
   } if (computerChoice === 'water') {
-    computerPic.src="/water-type.png"
+    computerPic.src="water-type.png"
   } if (computerChoice === "grass") {
-    computerPic.src="/grass-type.png"
+    computerPic.src="grass-type.png"
   }
   return computerPic;
 }
@@ -120,17 +120,17 @@ let playerPic = document.getElementById("player-choice-img")
 
 function playFire() {
   playRound('fire')
-  playerPic.src="/fire-type.png"
+  playerPic.src="fire-type.png"
 }
 
 function playWater() {
   playRound('water')
-  playerPic.src="/water-type.png"
+  playerPic.src="water-type.png"
 }
 
 function playGrass() {
   playRound('grass')
-  playerPic.src="/grass-type.png"
+  playerPic.src="grass-type.png"
 }
 
 // play round with built in win logic
