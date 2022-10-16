@@ -18,11 +18,11 @@ function getComputerChoice() {
 function generateComputerPic() {
   let computerPic = document.getElementById("cpu-choice-img")
   if (computerChoice === 'fire') {
-    computerPic.src="/images/fire-type.png"
+    computerPic.src="/fire-type.png"
   } if (computerChoice === 'water') {
-    computerPic.src="/images/water-type.png"
+    computerPic.src="/water-type.png"
   } if (computerChoice === "grass") {
-    computerPic.src="/images/grass-type.png"
+    computerPic.src="/grass-type.png"
   }
   return computerPic;
 }
@@ -120,17 +120,17 @@ let playerPic = document.getElementById("player-choice-img")
 
 function playFire() {
   playRound('fire')
-  playerPic.src="/images/fire-type.png"
+  playerPic.src="/fire-type.png"
 }
 
 function playWater() {
   playRound('water')
-  playerPic.src="/images/water-type.png"
+  playerPic.src="/water-type.png"
 }
 
 function playGrass() {
   playRound('grass')
-  playerPic.src="/images/grass-type.png"
+  playerPic.src="/grass-type.png"
 }
 
 // play round with built in win logic
@@ -188,10 +188,10 @@ function playRound(playerChoice) {
 function checkWinner() {
   if (playerLives === 0) {
     restartGame()
-    dialogbox.innerText = "Game over! You have LOST the pokebattle. Better luck next time! Pick again to start a new game."
+    dialogbox.innerText = "Game over! You have LOST the Poke-battle. Better luck next time! Pick again to start a new game."
   } else if (computerLives === 0) {
     restartGame()
-    dialogbox.innerText = "Game over! You have WON the pokebattle. Congratulations! Pick again to start a new game!"
+    dialogbox.innerText = "Game over! You have WON the Poke-battle. Congratulations! Pick again to start a new game!"
   }
 }
 
