@@ -1,8 +1,13 @@
+/* * {
+    border: solid red 2px;
+} */
+
 body {
     align-items: center;
     text-align: center;
     margin: 0px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #d6d6d2;
     
 }
 .header-container {
@@ -25,26 +30,27 @@ body {
 
 .header-text {
     display: flex;
-    -webkit-text-stroke: 5px black;
+    -webkit-text-stroke: 4px black;
     color: #FFDE00;
-    font-size: 80px;
+    font-size: 70px;
     font-weight: bolder;
     margin: auto;
     text-shadow: 7px 7px #3b3838;
+    gap: 5px;
 }
 
 .head-pics {
-    border:6px solid black;
+    border:3px solid black;
     border-radius:80px;
 }
 
 .pic-container {
     display: flex;
-    gap: 40px;
+    gap: 30px;
 }
 .sub-header {
     display: flex;
-    padding: 20px;
+    padding: 10px;
 }
 
 .fire {
@@ -61,4 +67,108 @@ body {
 
 .pokeball-png {
     text-shadow: 20px 20px;
+}
+
+.sub-header {
+    font-weight: 500;
+}
+
+#cpulife1, #cpulife2, #cpulife3, #cpulife4, #cpulife5 {
+    height: 30px;
+    width: 30px;
+}
+#cpu-choice-img {
+    height: 50px;
+    width: 50px;
+}
+
+.cpu-container {
+    display: flex;
+    justify-content: space-around;
+    height: 200px;
+}
+.player-container {
+    display: flex;
+    justify-content: space-around;
+    height: 250px;
+}
+
+.cpu-choice {
+    display: flex;
+    width: 300px;
+    align-items: center;
+}
+
+.player-choice {
+    display: flex;
+    width: 400px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.player-health {
+    width: 400px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 3px;
+    gap: 5px;
+}
+
+.cpu-health {
+    width: 400px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 3px;
+    gap: 5px;
+
+}
+
+#playerlife1, #playerlife2, #playerlife3, #playerlife4, #playerlife5 {
+    height: 30px;
+    width: 30px;
+}
+
+.dialog-container {
+    border: black solid 3px;
+    border-radius: 25px;
+    background-color: #f7f5e4;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+.dialog-box {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-choices {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    
+}
+
+#btn {
+    height: 100px;
+    width: 100px;
+    transition: transform .2s;
+    border:4px solid black;
+    border-radius:80px;
+    
+}
+
+#btn:hover {
+    transform: scale(1.08);
+}
+
+.footer {
+    background-color: #FFDE00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
